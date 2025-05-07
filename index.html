@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shoelace Example</title>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.13.0/cdn/shoelace.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.13.0/cdn/themes/light.css" />
+
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4.5rem;
+            align-items: flex-start;
+        }
+
+        .tab1-layout,
+        .tab2-layout {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .tab1-controls,
+        .tab2-controls {
+            flex: 1;
+            min-width: 600px;
+        }
+
+        .tab1-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tab2-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .tab3-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .section-text {
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <sl-tab-group>
+        <sl-tab slot="nav" panel="tab1">Image</sl-tab>
+        <sl-tab slot="nav" panel="tab2">Layers</sl-tab>
+        <sl-tab slot="nav" panel="tab3">Comparison</sl-tab>
+
+        <sl-tab-panel name="tab1">
+            <div class="section-text">Overview</div>
+            <div class="tab1-layout">
+              <div class="tab1-controls">
+                <img src="https://placehold.co/600x400/png?text=SLS" alt="Main Image" width="600" height="400" />
+                <sl-range label="Layer: N" min="0" max="100" value="50"></sl-range>
+              </div>
+                <div class="tab1-controls">
+                    <div class="section-text">Settings</div>
+                    <sl-range label="Contrast" min="0" max="100" value="50"></sl-range>
+                    <sl-range label="Lighting" min="0" max="100" value="25"></sl-range>
+                    <sl-range label="Gradient" min="0" max="100" value="75"></sl-range>
+                    <div class="tab1-buttons">
+                      <sl-input></sl-input>  
+                      <sl-button>Save profile</sl-button>
+                    </div>
+                    <div class="section-text">Profiles</div>
+                    <div class="tab1-buttons">
+                        <sl-button>Profile 1</sl-button>
+                        <sl-button>Profile 2</sl-button>
+                        <sl-button>Profile 3</sl-button>
+                    </div>
+                </div>
+            </div>
+        </sl-tab-panel>
+
+        <sl-tab-panel name="tab2">
+            <div class="section-text">Configuration Options</div>
+            <div class="tab2-layout">
+                <div class="tab2-controls">
+                    
+                    <sl-select label="Show on charts: " value="option-1 option-2 option-3" multiple clearable>
+                      <sl-option value="option-1">Average</sl-option>
+                      <sl-option value="option-2">Median</sl-option>
+                    </sl-select>
+                    <div class="section-text">Fine-tune Parameters</div>
+                    <sl-range label="Layers: N-M" min="0" max="100" value="10"></sl-range>
+                    <sl-range label="Temperature" min="0" max="100" value="40"></sl-range>
+                    <sl-range label="Temperature (enviroment)" min="0" max="100" value="90"></sl-range>
+                </div>
+                <div class="tab2-images">
+                    <div class="section-text">Charts</div>
+                    <img src="https://placehold.co/300x200/png?text=Chart+1" alt="Image 1" />
+                    <img src="https://placehold.co/300x200/png?text=Chart+2" alt="Image 2" />
+                    <img src="https://placehold.co/300x200/png?text=Chart+3" alt="Image 3" />
+                </div>
+            </div>
+        </sl-tab-panel>
+
+        <sl-tab-panel name="tab3">
+            <div class="section-text">Comparison</div>
+            <sl-range label="Layer for all: N" min="0" max="100" value="50"></sl-range>
+            <br><br><br>
+            <div class="tab3-grid">
+              <div>
+                <sl-range label="Layer: N" min="0" max="100" value="50"></sl-range>
+                <sl-select label="Option">
+                    <sl-option value="1">gcode</sl-option>
+                    <sl-option value="2">3D CAD model</sl-option>
+                    <sl-option value="2">Printing</sl-option>
+                </sl-select>
+                <img src="https://placehold.co/150x150/png?text=Image" alt="Image A" />
+              </div>
+              <div>
+                <sl-range label="Layer: N" min="0" max="100" value="50"></sl-range>
+                <sl-select label="Option">
+                    <sl-option value="1">gcode</sl-option>
+                    <sl-option value="2">3D CAD model</sl-option>
+                    <sl-option value="2">Printing</sl-option>
+                </sl-select>
+                <img src="https://placehold.co/150x150/png?text=Image" alt="Image A" />
+              </div>
+              <div>
+                <sl-range label="Layer: N" min="0" max="100" value="50"></sl-range>
+                <sl-select label="Option">
+                    <sl-option value="1">gcode</sl-option>
+                    <sl-option value="2">3D CAD model</sl-option>
+                    <sl-option value="2">Printing</sl-option>
+                </sl-select>
+                <img src="https://placehold.co/150x150/png?text=Image" alt="Image A" />
+              </div>
+              <div>
+                <sl-range label="Layer: N" min="0" max="100" value="50"></sl-range>
+                <sl-select label="Option">
+                    <sl-option value="1">gcode</sl-option>
+                    <sl-option value="2">3D CAD model</sl-option>
+                    <sl-option value="2">Printing</sl-option>
+                </sl-select>
+                <img src="https://placehold.co/150x150/png?text=Image" alt="Image A" />
+              </div>
+              <div>
+                <sl-range label="Layer: N" min="0" max="100" value="50"></sl-range>
+                <sl-select label="Option">
+                    <sl-option value="1">gcode</sl-option>
+                    <sl-option value="2">3D CAD model</sl-option>
+                    <sl-option value="2">Printing</sl-option>
+                </sl-select>
+                <img src="https://placehold.co/150x150/png?text=Image" alt="Image A" />
+              </div>
+              <div>
+                <sl-range label="Layer: N" min="0" max="100" value="50"></sl-range>
+                <sl-select label="Option">
+                    <sl-option value="1">gcode</sl-option>
+                    <sl-option value="2">3D CAD model</sl-option>
+                    <sl-option value="2">Printing</sl-option>
+                </sl-select>
+                <img src="https://placehold.co/150x150/png?text=Image" alt="Image A" />
+              </div>  
+                
+            </div>
+        </sl-tab-panel>
+    </sl-tab-group>
+</body>
+<script type="module">
+</script>
+</html>
